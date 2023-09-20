@@ -1,0 +1,81 @@
+<div style="height: 60px; padding: 10px;">
+  <button mat-raised-button color="primary" (click)="goToListDesc()">Descuentos</button>
+  <mat-form-field style="width: 300px; margin-left: 300px;">
+    <mat-label>Tarjetas</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let tarjeta of tarjetas" (click)="addCard(tarjeta)" [value]="tarjeta.id">
+        {{tarjeta.nombre}} - {{tarjeta.numTarjeta}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button style="width: 200px; float: right;" mat-raised-button color="primary" (click)="addSold()">Realizar Compra</button>
+  <button style="width: 200px; float: right;" mat-raised-button color="primary" (click)="calcularVenta()">Calcular Compra</button>
+</div>
+
+
+
+
+
+
+
+<div>
+<table mat-table [dataSource]="productos" class="mat-elevation-z8">
+
+
+ <!-- id Column -->
+ <ng-container matColumnDef="id">
+  <th mat-header-cell *matHeaderCellDef>Id</th>
+  <td mat-cell *matCellDef="let element">{{element.id}}</td>
+</ng-container>
+
+<!-- codigo Column -->
+<ng-container matColumnDef="codigo">
+  <th mat-header-cell *matHeaderCellDef>Codigo</th>
+  <td mat-cell *matCellDef="let element">{{element.codigo}}</td>
+</ng-container>
+
+<!-- descripcion Column -->
+<ng-container matColumnDef="descripcion">
+  <th mat-header-cell *matHeaderCellDef>Descripcion</th>
+  <td mat-cell *matCellDef="let element">{{element.descripcion}}</td>
+</ng-container>
+<!-- categoria Column -->
+<ng-container matColumnDef="nombreCategoria">
+  <th mat-header-cell *matHeaderCellDef>Categoria</th>
+  <td mat-cell *matCellDef="let element">{{element.categoria.nombreCategoria}}</td>
+</ng-container>
+<!-- marca Column -->
+<ng-container matColumnDef="marca">
+  <th mat-header-cell *matHeaderCellDef>Marca</th>
+  <td mat-cell *matCellDef="let element">{{element.marca.nombre}}</td>
+</ng-container>
+<!-- precio Column -->
+<ng-container matColumnDef="precio">
+  <th mat-header-cell *matHeaderCellDef>Precio</th>
+  <td mat-cell *matCellDef="let element">{{element.precio}}</td>
+</ng-container>
+<!-- precio Column -->
+<ng-container matColumnDef="select">
+  <th mat-header-cell *matHeaderCellDef>
+    <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                  [checked]="selection.hasValue() && isAllSelected()"
+                  [indeterminate]="selection.hasValue() && !isAllSelected()"
+                  [aria-label]="checkboxLabel()">
+    </mat-checkbox>
+  </th>
+  <td mat-cell *matCellDef="let row">
+    <mat-checkbox (click)="$event.stopPropagation()"
+                  (change)="$event ? selection.toggle(row) : null"
+                  [checked]="selection.isSelected(row)"
+                  [aria-label]="checkboxLabel(row)">
+    </mat-checkbox>
+  </td>
+</ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+      (click)="selection.toggle(row)">
+  </tr>
+</table>
+</div>

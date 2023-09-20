@@ -1,0 +1,50 @@
+<div style="height: 60px; padding: 30px;">
+    <button mat-raised-button color="primary" (click)="goToListProds()">Volver</button>
+</div>
+<div>
+    <table mat-table [dataSource]="descuentos" class="mat-elevation-z8">
+
+    
+    <!-- id Column -->
+    <ng-container matColumnDef="id">
+     <th mat-header-cell *matHeaderCellDef>Id</th>
+     <td mat-cell *matCellDef="let element">{{element.id}}</td>
+   </ng-container>
+   
+   <!-- codigo Column -->
+   <ng-container matColumnDef="tipo">
+     <th mat-header-cell *matHeaderCellDef>Tipo</th>
+     <td mat-cell *matCellDef="let element">{{element.tipo}}</td>
+   </ng-container>
+   
+   <!-- descripcion Column -->
+   <ng-container matColumnDef="fechaInicio">
+     <th mat-header-cell *matHeaderCellDef>Fecha Inicio</th>
+     <td mat-cell *matCellDef="let element">{{element.fechaInicio}}</td>
+   </ng-container>
+   <!-- categoria Column -->
+   <ng-container matColumnDef="fechaFin">
+     <th mat-header-cell *matHeaderCellDef>Fecha Fin</th>
+     <td mat-cell *matCellDef="let element">{{element.fechaFin}}</td>
+   </ng-container>
+   <!-- marca Column -->
+   <ng-container matColumnDef="nombre">
+     <th mat-header-cell *matHeaderCellDef>Nombre</th>
+     <td mat-cell *matCellDef="let element">{{element.nombreDesc}}</td>
+   </ng-container>
+   <!-- precio Column -->
+   <ng-container matColumnDef="descuento">
+     <th mat-header-cell *matHeaderCellDef>Descuento</th>
+     <td mat-cell *matCellDef="let element">{{element.descuento}}</td>
+   </ng-container>
+   <!-- precio Column -->
+   
+   
+     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+     <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+         (click)="selection.toggle(row)">
+     </tr>
+
+     
+   </table>
+</div>
