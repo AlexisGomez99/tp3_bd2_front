@@ -8,10 +8,15 @@ import { CommonModule } from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { FormsModule } from '@angular/forms';
+import { InfoProdComponent } from './info-prod/info-prod.component';
+import { MatOptionModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
-    ListadoProductosComponent
+    ListadoProductosComponent,
+    InfoProdComponent
   ],
   imports: [
     CommonModule,
@@ -21,6 +26,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatButtonModule,
     MatSelectModule,
     MatSnackBarModule,
+    FormsModule,
+    MatOptionModule,
+    MatFormFieldModule,
+    
   ],
 })
 export class ProductoModule { }

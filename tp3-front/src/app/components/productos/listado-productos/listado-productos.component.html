@@ -1,19 +1,20 @@
+
+
 <div style="height: 60px; padding: 10px;">
   <button mat-raised-button color="primary" (click)="goToListDesc()">Descuentos</button>
   <mat-form-field style="width: 300px; margin-left: 300px;">
     <mat-label>Tarjetas</mat-label>
-    <mat-select>
+    <mat-select [(ngModel)]="selectedTarjeta" name="selectedTarjeta">
       <mat-option *ngFor="let tarjeta of tarjetas" (click)="addCard(tarjeta)" [value]="tarjeta.id">
         {{tarjeta.nombre}} - {{tarjeta.numTarjeta}}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
-  <button style="width: 200px; float: right;" mat-raised-button color="primary" (click)="addSold()">Realizar Compra</button>
-  <button style="width: 200px; float: right;" mat-raised-button color="primary" (click)="calcularVenta()">Calcular Compra</button>
+  <button style="width: 200px; float: right;" mat-raised-button color="primary" (click)="addSold()" [disabled]="!selectedTarjeta">Realizar Compra</button>
+  <button style="width: 200px; float: right;" mat-raised-button color="primary" (click)="calcularVenta()" [disabled]="!selectedTarjeta">Calcular Compra</button>
+  <button style="width: 200px; float: right;" mat-raised-button color="primary" (click)="goToEditProd()" >Modificar Producto</button>
 </div>
-
-
 
 
 

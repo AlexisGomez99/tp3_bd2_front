@@ -27,6 +27,7 @@ export interface PeriodicElement {
 })
 
 export class ListadoProductosComponent implements OnInit{
+
   productos: Producto[]= [];
   tarjetas: Tarjeta[]= [];
   tarjetaSelected!: Tarjeta;
@@ -35,6 +36,7 @@ export class ListadoProductosComponent implements OnInit{
   selection = new SelectionModel<Producto>(true, []);
 
   @ViewChild(MatTable) table!: MatTable<PeriodicElement>;
+selectedTarjeta: any;
 
   constructor(private _snackBar: MatSnackBar,private productoService: ProductoService, private route: Router, private clienteService: ClienteService, private ventaService: VentaService, private venta:Venta){
 
@@ -55,7 +57,9 @@ export class ListadoProductosComponent implements OnInit{
   goToListDesc(): void{
     this.route.navigate(['/descuentos/listar']).then();
   }
-  
+  goToEditProd() {
+    this.route.navigate(['/productos/editar']).then();
+  }
   addCard(tarjeta:Tarjeta): void{
     this.tarjetaSelected= tarjeta;
   }
@@ -68,12 +72,12 @@ export class ListadoProductosComponent implements OnInit{
 
   /** Selects all rows if they are not all selected; otherwise clear selection. */
   toggleAllRows() {
-    /*if (this.isAllSelected()) {
+    if (this.isAllSelected()) {
       this.selection.clear();
       return;
     }
 
-    this.selection.select(...this.dataSource.data);*/
+    this.selection.select(...this.dataSource.data);
   }
 
   /** The label for the checkbox on the passed row */

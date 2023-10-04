@@ -11,7 +11,8 @@ const routes: Routes = [{
     },{
       path: 'descuentos',
       loadChildren: () => import('./components/descuentos/descuentos.module').then((d) => d.DescuentosModule)
-    }]}
+    },
+  ]}
   ]
 
 @NgModule({
