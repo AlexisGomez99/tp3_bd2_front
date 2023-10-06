@@ -38,7 +38,12 @@ export class ListadoProductosComponent implements OnInit{
   @ViewChild(MatTable) table!: MatTable<PeriodicElement>;
 selectedTarjeta: any;
 
-  constructor(private _snackBar: MatSnackBar,private productoService: ProductoService, private route: Router, private clienteService: ClienteService, private ventaService: VentaService, private venta:Venta){
+  constructor(private _snackBar: MatSnackBar,
+    private productoService: ProductoService, 
+    private route: Router, 
+    private clienteService: ClienteService, 
+    private ventaService: VentaService, 
+    private venta:Venta){
 
   }
   openSnackBar(message: string, action: string) {

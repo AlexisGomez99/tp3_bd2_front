@@ -5,7 +5,7 @@ import { GenericModel } from "./generic-model";
     providedIn: 'root',
   })
 export class Categoria extends GenericModel{
-    nombre!: string;
+    nombreCategoria!: string;
 
 
 }
