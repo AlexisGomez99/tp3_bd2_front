@@ -13,11 +13,13 @@ import { InfoProdComponent } from './info-prod/info-prod.component';
 import { MatOptionModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ListadoVentasComponent } from '../ventas/listado-ventas/listado-ventas.component';
 
 @NgModule({
   declarations: [
     ListadoProductosComponent,
-    InfoProdComponent
+    InfoProdComponent,
+    ListadoVentasComponent,
   ],
   imports: [
     MatFormFieldModule,

@@ -62,6 +62,9 @@ selectedTarjeta: any;
   goToListDesc(): void{
     this.route.navigate(['/descuentos/listar']).then();
   }
+  goToLastSold(): void{
+    this.route.navigate(['/ventas/listar']).then();
+  }
   goToEditProd() {
     this.route.navigate(['/productos/editar']).then();
   }

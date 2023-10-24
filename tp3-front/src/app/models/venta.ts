@@ -13,5 +13,6 @@ export class Venta extends GenericModel{
     tarjeta!: Tarjeta;
     listaProductos: Producto[]=[];
     totalPagado!: number;
+    numeroUnico!: string;
 
 }

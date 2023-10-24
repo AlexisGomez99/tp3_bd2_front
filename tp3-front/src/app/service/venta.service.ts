@@ -27,4 +27,8 @@ export class VentaService {
     return this.http.post<Venta>(ventaUrl+"/calcular",venta);
   }
 
+  getLastSold(id: number): Observable<any>{
+    return this.http.get<Venta>(ventaUrl+"/listar-recientes/"+id);
+  }
+
 }
